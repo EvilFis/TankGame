@@ -7,6 +7,7 @@
 #include <clocale>
 
 #include "Tank.h"
+#include "ETank.h"
 #include "Bullet.h"
 #include "Rock.h"
 #include "Storm.h"
@@ -28,7 +29,7 @@ struct SettingApp {
     void clearConsole() {
         COORD WCoord = {0, 0}; // Координаты по ширене
         DWORD nKol = 0; // Кол-во столбцов
-        size_t xy = (sizeX*sizeY); // Размер поля очистки
+        size_t xy = 160000; // Размер поля очистки
         BOOL fSucces = FillConsoleOutputAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0, xy, WCoord, &nKol); // Очистка поля консоли
     }
 };
@@ -49,23 +50,27 @@ int main() {
               TRUE);
 
     Tank tank(settingApp.dc); // Класс танка для отрисовки
+    ETank etank(settingApp.dc); // Класс вражеского танка для отрисовки
     Bullet bullet(settingApp.dc); // Класс пули для отрисовки
     Rock rock_small(settingApp.dc, 's', 350); // Класс маленького камня для отрисовки
     Rock rock_big(settingApp.dc, 'b'); // Класс большого камня для отрисовки
     Storm storm(settingApp.dc);
 
+    char direction = 'w';
+
     while (true) {
         
         settingApp.clearConsole();
 
-        tank.disp();
+        tank.disp(direction);
+        etank.disp(direction);
         bullet.disp();
         rock_small.disp();
         rock_big.disp();
         storm.disp();
 
-        tank.move();
-        storm.move();
+        direction = tank.move();
+        direction = etank.move();
 
     };
 

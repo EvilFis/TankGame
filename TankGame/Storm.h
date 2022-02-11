@@ -17,31 +17,11 @@ public:
 
 	void disp() {
 		
-		srand(time(0)); // Вызывается чтобы каждый раз значение rand выдавала разные значения
+		//srand(time(0)); // Вызывается чтобы каждый раз значение rand выдавала разные значения
 		for (short i = 0; i <= 3; i++) {
-			Ellipse(this->dc, this->_sx - 25, this->_sy - 25, (this->_sx + (rand() % 50)), (this->_sy + (rand() % 50)));
+			Ellipse(this->dc, (this->_sx - (rand() % 25)), (this->_sy - (rand() % 25)), (this->_sx + (rand() % 50)), (this->_sy + (rand() % 50)));
 		}
 
-	}
-
-	void move() {
-		if (_kbhit()) {
-			switch (_getch()) {
-			case 'i':
-				this->_sy -= 5;
-				break;
-			case 'k':
-				this->_sy += 5;
-				break;
-			case 'l':
-				this->_sx += 5;
-				break;
-			case 'j':
-				this->_sx -= 5;
-				break;
-
-			}
-		}
 	}
 
 };
