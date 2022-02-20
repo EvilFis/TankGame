@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ETank.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Storm.h" />
     <ClInclude Include="Tank.h" />

@@ -2,15 +2,16 @@
 
 class Bullet {
 private:
-	unsigned short _bx, _by;
-
 	HDC dc;
+
 
 public:
 
-	Bullet(HDC detectedConsole) {
-		this->_bx = 50;
-		this->_by = 50;
+	unsigned short _bx, _by;
+
+	Bullet(HDC detectedConsole, unsigned short _bx, unsigned short _by) {
+		this->_bx = _bx;
+		this->_by = _by;
 
 		this->dc = detectedConsole;
 
