@@ -8,7 +8,7 @@ class ETank {
 private:
 	unsigned short _tx, _ty;
 
-	HBRUSH _base_c, _cabin_c, _catarpillar_c, _gun_c;
+	HBRUSH _base_c, _cabin_c, _catarpillar_c, _gun_c, _cabin_c_meh, _catarpillar_c_meh, _tower_c_meh;
 
 	HDC dc;
 
@@ -24,6 +24,10 @@ public:
 		this->_cabin_c = CreateSolidBrush(RGB(236, 28, 37));
 		this->_catarpillar_c = CreateSolidBrush(RGB(137, 1, 21));
 		this->_gun_c = CreateSolidBrush(RGB(254, 154, 170));
+
+		this->_cabin_c_meh = CreateSolidBrush(RGB(127, 127, 127));
+		this->_catarpillar_c_meh = CreateSolidBrush(RGB(69, 69, 69));
+		this->_tower_c_meh = CreateSolidBrush(RGB(195, 195, 195));
 
 	}
 

@@ -18,8 +18,7 @@ class Map
 		RECT mapPar;
 		HBRUSH _base_c, _bg_c;
 		Tank* tank;
-		Rock* rock_damage;
-		Rock* rock_static;
+		Rock* rock;
 
 
 	public:
@@ -37,8 +36,7 @@ class Map
 			this->direction = 'w';
 
 			tank = new Tank(detectedConsole);
-			rock_damage = new Rock(detectedConsole, 's', sizeX, sizeY);
-			rock_static = new Rock(detectedConsole, 'b', sizeX, sizeY, 100);
+			rock = new Rock(detectedConsole, 's', sizeX, sizeY);
 		}
 
 		
@@ -49,8 +47,7 @@ class Map
 			SelectObject(this->dc, this->_bg_c); // Кисточка для окраски танка
 			BOOL cabina = Rectangle(dc, 0, 0, this->_sizeX, this->_sizeY ); // Задний фон
 
-			rock_static->disp();
-			rock_damage->disp();
+			rock->disp();
 
 			tank->disp(this->direction);
 			this->direction = tank->move();
